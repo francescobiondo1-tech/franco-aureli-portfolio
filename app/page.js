@@ -54,7 +54,7 @@ export default function Home() {
       </section>
 
       <section className="author" id="autore">
-        <div className="portrait"><div className="monogram">{author.monogram}</div><span>{author.portraitLabel}</span></div>
+        <div className="portrait"><div className="monogram">{author.monogram}</div></div>
         <div className="bio">
           <span>{author.label}</span>
           <h2>{author.nameLines[0]}<br/><em>{author.nameLines[1]}</em></h2>

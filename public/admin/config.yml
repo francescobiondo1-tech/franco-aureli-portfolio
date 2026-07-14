@@ -55,7 +55,6 @@ collections:
               - { label: Etichetta, name: label, widget: string }
               - { label: Nome su due righe, name: nameLines, widget: list, field: { label: Riga, name: line, widget: string } }
               - { label: Iniziali, name: monogram, widget: string }
-              - { label: Didascalia ritratto, name: portraitLabel, widget: string }
               - { label: Paragrafi, name: paragraphs, widget: list, field: { label: Paragrafo, name: paragraph, widget: text } }
           - label: Sezione contatti
             name: contactSection
