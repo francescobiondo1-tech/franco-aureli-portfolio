@@ -4,6 +4,14 @@ import { siteContent } from "../content/site";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
+const CartIcon = () => (
+  <svg className="cart-icon" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 1.9-1.4L21 8H7" />
+    <circle cx="10" cy="19" r="1.25" />
+    <circle cx="18" cy="19" r="1.25" />
+  </svg>
+);
+
 function BookCover({ book }) {
   return <img className="cover-image" src={book.image} alt={book.imageAlt} />;
 }
@@ -14,6 +22,16 @@ function BookCopy({ book }) {
       <span className={["status", book.statusClass].filter(Boolean).join(" ")}>{book.status}</span>
       <h3>{book.titleLines.map((line, index) => <span key={line}>{line}{index < book.titleLines.length - 1 && <br />}</span>)}</h3>
       <p>{book.description}</p>
+      {book.purchaseLinks?.length > 0 && (
+        <div className="purchase-links" aria-label={`Acquista ${book.titleLines.join(" ")}`}>
+          {book.purchaseLinks.map((link) => (
+            <a href={link.url} key={link.url} target="_blank" rel="noopener noreferrer">
+              <CartIcon />
+              <span>{link.label}</span>
+            </a>
+          ))}
+        </div>
+      )}
       <span className="detail">{book.detail}</span>
     </div>
   );
@@ -54,7 +72,7 @@ export default function Home() {
       </section>
 
       <section className="author" id="autore">
-        <div className="portrait"><div className="monogram">{author.monogram}</div><span>{author.portraitLabel}</span></div>
+        <div className="portrait"><div className="monogram">{author.monogram}</div></div>
         <div className="bio">
           <span>{author.label}</span>
           <h2>{author.nameLines[0]}<br/><em>{author.nameLines[1]}</em></h2>
