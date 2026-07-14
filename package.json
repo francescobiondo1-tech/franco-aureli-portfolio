@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vinext dev",
-    "build": "vinext build && mkdir -p dist/.openai && cp .openai/hosting.json dist/.openai/hosting.json",
-    "start": "vinext start"
+    "dev": "next dev",
+    "build": "next build && node scripts/package-site.mjs",
+    "start": "node dist/server/index.js"
   },
   "dependencies": {
     "next": "^15.4.0",
