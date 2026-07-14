@@ -9,7 +9,17 @@
       "detail": "Romantic suspense · Palermo",
       "image": "/images/le-chiavi-di-via-alloro.jpeg",
       "imageAlt": "Copertina di Le chiavi di via Alloro",
-      "imagePosition": "before"
+      "imagePosition": "before",
+      "purchaseLinks": [
+        {
+          "label": "AMAZON",
+          "url": "https://amzn.eu/d/04KlGHPq"
+        },
+        {
+          "label": "YOUCANPRINT",
+          "url": "https://store.youcanprint.it/le-chiavi-di-via-alloro/b/2e6f829a-8a4d-5e65-af25-32828ed1a6c5"
+        }
+      ]
     },
     {
       "id": "la-ragazza-del-porto",
