@@ -1,9 +1,14 @@
 import "./globals.css";
 import "./covers.css";
+import { contact } from "../content/contact";
+import { siteContent } from "../content/site";
 
 export const metadata = {
-  title: "Franco Aureli | Scrittore",
-  description: "Il sito ufficiale di Franco Aureli, autore di romanzi rosa."
+  ...siteContent.metadata,
+  ...(contact.siteUrl ? {
+    metadataBase: new URL(contact.siteUrl),
+    alternates: { canonical: "/" }
+  } : {})
 };
 
 export default function RootLayout({ children }) {
