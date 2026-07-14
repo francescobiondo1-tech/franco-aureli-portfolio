@@ -1,0 +1,7 @@
+.cover-image {
+  display: block;
+  width: min(380px, 100%);
+  height: auto;
+  margin: auto;
+  box-shadow: 15px 22px 45px #0008;
+}
