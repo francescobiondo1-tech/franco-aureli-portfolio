@@ -37,7 +37,7 @@ export default function Home() {
 
       <section className="newsletter" id="contatti">
         <span>03 — Resta aggiornato</span><h2>Il prossimo capitolo<br/>arriva ad <em>agosto.</em></h2><p>Segui le novità su “La ragazza del porto” e i prossimi appuntamenti con Franco Aureli.</p>
-        <a className="mail" href="mailto:contatti@francoaureli.it">Scrivi all’autore <Arrow /></a>
+        <span className="mail">Contatti in arrivo <Arrow /></span>
       </section>
       <footer><span>© 2026 Franco Aureli</span><span>Romanzi rosa, sentimenti veri.</span><a href="#inizio">Torna su ↑</a></footer>
     </main>
