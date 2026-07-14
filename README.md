@@ -35,14 +35,27 @@ pnpm start
 
 ## Dove modificare i contenuti
 
-I contenuti non sono inseriti direttamente nei componenti grafici:
+Il sito dispone inoltre di un pannello visuale per i contenuti all'indirizzo `/admin/`. I contenuti non sono inseriti direttamente nei componenti grafici:
 
-- `content/site.js`: navigazione, hero, biografia, sezione contatti, footer e metadati SEO.
-- `content/books.js`: titoli, sinossi, stato di pubblicazione, dettagli e percorsi delle copertine.
-- `content/contact.js`: collegamento tra recapiti e variabili d’ambiente.
+- `content/site.json`: navigazione, hero, biografia, sezione contatti, footer e metadati SEO.
+- `content/books.json`: titoli, sinossi, stato di pubblicazione, dettagli e percorsi delle copertine.
+- `content/contact.json`: email pubblica.
 - `public/images/`: immagini e copertine pubbliche.
 
-Per sostituire un’immagine, inserire il nuovo file in `public/images/` e aggiornare il relativo percorso in `content/books.js`. I percorsi pubblici iniziano con `/images/` e non contengono riferimenti al computer locale.
+Per sostituire un’immagine, usare il pannello oppure inserire il nuovo file in `public/images/` e aggiornare il relativo percorso in `content/books.json`. I percorsi pubblici iniziano con `/images/` e non contengono riferimenti al computer locale.
+
+## Attivazione del pannello contenuti
+
+Il pannello usa Decap CMS, Netlify Identity e Git Gateway. Dopo il primo deploy dei file:
+
+1. Nel progetto Netlify aprire **Project configuration → Identity** e abilitare Identity.
+2. Impostare le registrazioni su **Invite only**.
+3. Nella sezione **Services** abilitare **Git Gateway**.
+4. In **Identity → Invite users** invitare l'indirizzo email della persona che modificherà il sito.
+5. Aprire l'email ricevuta e impostare la password.
+6. Visitare `https://NOME-SITO.netlify.app/admin/` e accedere.
+
+Dal pannello si possono modificare testi, romanzi, recapiti e copertine. Il comando **Pubblica** salva le modifiche su GitHub e avvia automaticamente un nuovo deploy Netlify. Il pannello non modifica liberamente colori e impaginazione: queste parti restano nel codice grafico per evitare rotture accidentali.
 
 ## Variabili d’ambiente
 

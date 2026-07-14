@@ -1,0 +1,102 @@
+locale: it
+
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: impostazioni
+    label: Contenuti del sito
+    files:
+      - name: pagina
+        label: Pagina principale
+        file: content/site.json
+        format: json
+        fields:
+          - label: Informazioni per Google
+            name: metadata
+            widget: object
+            fields:
+              - { label: Titolo del sito, name: title, widget: string }
+              - { label: Descrizione del sito, name: description, widget: text }
+          - label: Menu
+            name: navigation
+            widget: object
+            fields:
+              - { label: Nome in alto, name: brand, widget: string }
+              - label: Collegamenti
+                name: links
+                widget: list
+                fields:
+                  - { label: Testo, name: label, widget: string }
+                  - { label: Destinazione, name: href, widget: string }
+          - label: Apertura della pagina
+            name: hero
+            widget: object
+            fields:
+              - { label: Sottotitolo, name: eyebrow, widget: string }
+              - { label: Titolo, name: title, widget: string }
+              - { label: Titolo in corsivo, name: emphasizedTitle, widget: string }
+              - { label: Presentazione, name: introduction, widget: text }
+              - { label: Testo del pulsante, name: buttonLabel, widget: string }
+          - label: Intestazione romanzi
+            name: booksSection
+            widget: object
+            fields:
+              - { label: Etichetta, name: label, widget: string }
+              - { label: Righe del titolo, name: titleLines, widget: list, field: { label: Riga, name: line, widget: string } }
+          - label: Biografia
+            name: author
+            widget: object
+            fields:
+              - { label: Etichetta, name: label, widget: string }
+              - { label: Nome su due righe, name: nameLines, widget: list, field: { label: Riga, name: line, widget: string } }
+              - { label: Iniziali, name: monogram, widget: string }
+              - { label: Didascalia ritratto, name: portraitLabel, widget: string }
+              - { label: Paragrafi, name: paragraphs, widget: list, field: { label: Paragrafo, name: paragraph, widget: text } }
+          - label: Sezione contatti
+            name: contactSection
+            widget: object
+            fields:
+              - { label: Etichetta, name: label, widget: string }
+              - { label: Titolo, name: title, widget: string }
+              - { label: Continuazione del titolo, name: titleContinuation, widget: string }
+              - { label: Parola in corsivo, name: emphasizedTitle, widget: string }
+              - { label: Descrizione, name: description, widget: text }
+              - { label: Testo quando manca l’email, name: pendingLabel, widget: string }
+          - label: Fondo pagina
+            name: footer
+            widget: object
+            fields:
+              - { label: Copyright, name: copyright, widget: string }
+              - { label: Frase finale, name: tagline, widget: string }
+              - { label: Collegamento per tornare in alto, name: backToTop, widget: string }
+      - name: romanzi
+        label: Romanzi
+        file: content/books.json
+        format: json
+        fields:
+          - label: Elenco dei romanzi
+            name: books
+            widget: list
+            summary: "{{fields.titleLines}}"
+            fields:
+              - { label: Identificativo, name: id, widget: string, hint: "Solo lettere minuscole e trattini; non cambiarlo per i romanzi esistenti." }
+              - { label: Posizione grafica, name: articleClass, widget: select, options: [first, second] }
+              - { label: Stato, name: status, widget: string }
+              - { label: Evidenzia come novità, name: statusClass, widget: select, required: false, options: [{ label: No, value: "" }, { label: Sì, value: new }] }
+              - { label: Titolo su più righe, name: titleLines, widget: list, field: { label: Riga, name: line, widget: string } }
+              - { label: Descrizione, name: description, widget: text }
+              - { label: Dettaglio, name: detail, widget: string }
+              - { label: Copertina, name: image, widget: image }
+              - { label: Descrizione accessibile della copertina, name: imageAlt, widget: string }
+              - { label: Posizione della copertina, name: imagePosition, widget: select, options: [{ label: Prima del testo, value: before }, { label: Dopo il testo, value: after }] }
+      - name: contatti
+        label: Recapiti
+        file: content/contact.json
+        format: json
+        fields:
+          - { label: Email pubblica, name: email, widget: string, required: false }
