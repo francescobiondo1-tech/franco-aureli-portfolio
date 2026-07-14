@@ -1,9 +1,8 @@
 import { createReadStream, existsSync, statSync } from "node:fs";
 import { createServer } from "node:http";
-import { extname, join, normalize } from "node:path";
-import { fileURLToPath } from "node:url";
+import { dirname, extname, join, normalize, resolve } from "node:path";
 
-const root = normalize(join(fileURLToPath(new URL(".", import.meta.url)), "../client"));
+const root = normalize(join(dirname(resolve(process.argv[1])), "../client"));
 const types = {
   ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
